@@ -20,7 +20,12 @@ function newNonPlayableCharacter(x, y) {
         element.style.left = x + 'px'
         element.style.bottom = y + 'px'
     }
-
+    function getY(){
+        return element.style.left;
+    }
+    function getX(){
+        return element.style.right;
+    }
     setInterval(moveCharacter, 1)
 
     async function walkEast(time) {
@@ -58,10 +63,12 @@ function newNonPlayableCharacter(x, y) {
         element.src = `./assets/red-character/static.gif`
     }
 
-    function sleep(){
-
-        return
+    function sleep(time){
+        return new Promise(resolve => {
+            setTimeout(resolve, time)
+        })  
     }
+    
 
     return {
         element: element,
